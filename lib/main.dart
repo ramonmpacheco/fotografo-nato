@@ -4,6 +4,7 @@ import 'package:fotografo_nato/screens/places_list_screen.dart';
 import 'package:fotografo_nato/utils/app_routes.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
       ),
       home: PlacesListScreen(),
-      routes: {AppRoutes.PLACE_FORM: (ctx) => PlaceFormScreen(),
+      routes: {
+        AppRoutes.PLACE_FORM: (ctx) => PlaceFormScreen(),
       },
     );
   }

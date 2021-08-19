@@ -8,3 +8,4 @@ Awesome project for take all photos you like.
 
 - [Online documentation](https://flutter.dev/docs)
 
+## NÃO FUNCIONAL NO IOS
