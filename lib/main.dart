@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fotografo_nato/providers/places_provider.dart';
 import 'package:fotografo_nato/screens/place_form_screen.dart';
 import 'package:fotografo_nato/screens/places_list_screen.dart';
 import 'package:fotografo_nato/utils/app_routes.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,16 +13,19 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fotógrafo Nato',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-        accentColor: Colors.amber,
+    return ChangeNotifierProvider(
+      create: (ctx) => PlacesProvider(),
+      child: MaterialApp(
+        title: 'Fotógrafo Nato',
+        theme: ThemeData(
+          primarySwatch: Colors.indigo,
+          accentColor: Colors.amber,
+        ),
+        home: PlacesListScreen(),
+        routes: {
+          AppRoutes.PLACE_FORM: (ctx) => PlaceFormScreen(),
+        },
       ),
-      home: PlacesListScreen(),
-      routes: {
-        AppRoutes.PLACE_FORM: (ctx) => PlaceFormScreen(),
-      },
     );
   }
 }
