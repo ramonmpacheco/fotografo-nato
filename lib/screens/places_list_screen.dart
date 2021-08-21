@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fotografo_nato/providers/places_provider.dart';
 import 'package:fotografo_nato/utils/app_routes.dart';
+import 'package:provider/provider.dart';
 
 class PlacesListScreen extends StatelessWidget {
   @override
@@ -16,8 +18,23 @@ class PlacesListScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        child: CircularProgressIndicator(),
+      body: Consumer<PlacesProvider>(
+        child: Center(
+          child: Text('Nenhuma local...'),
+        ),
+        builder: (ctx, greatPlaces, ch) => greatPlaces.itemsCount == 0
+            ? ch
+            : ListView.builder(
+                itemCount: greatPlaces.itemsCount,
+                itemBuilder: (ctx, index) => ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage:
+                        FileImage(greatPlaces.itemByIndex(index).image),
+                  ),
+                  title: Text(greatPlaces.itemByIndex(index).title),
+                  onTap: () {},
+                ),
+              ),
       ),
     );
   }
