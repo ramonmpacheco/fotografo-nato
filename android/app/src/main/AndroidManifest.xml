@@ -3,6 +3,8 @@
    <application
         android:label="fotografo_nato"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyD4A_YKcqUANES6SzteSXRmqxjg4xtP8SE"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
