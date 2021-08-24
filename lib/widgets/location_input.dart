@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fotografo_nato/screens/map_screen.dart';
 import 'package:fotografo_nato/utils/location_util.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class LocationInput extends StatefulWidget {
@@ -24,10 +25,10 @@ class _LocationInputState extends State<LocationInput> {
   }
 
   Future<void> _selectOnMap() async {
-    final selectedLocation = await Navigator.of(context)
+    final LatLng selectedPosition = await Navigator.of(context)
         .push(MaterialPageRoute(builder: (ctx) => MapScreen()));
 
-    if (selectedLocation == null) return;
+    if (selectedPosition == null) return;
   }
 
   @override
